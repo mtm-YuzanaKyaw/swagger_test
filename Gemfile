@@ -26,6 +26,9 @@ gem "rack-cors"
 gem "devise"
 gem "devise-jwt"
 gem "jsonapi-serializer"
+gem "factory_bot_rails"
+gem "faker"
+gem 'byebug', '~> 11.1', '>= 11.1.3'
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
@@ -48,4 +51,6 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "rswag"
+  gem "rspec-rails"
 end

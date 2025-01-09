@@ -1,0 +1,75 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+components:
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Your Bearer token
+paths:
+  "/signup":
+    post:
+      summary: signup users
+      tags:
+      - Resource
+      parameters: []
+      responses:
+        '200':
+          description: Sign up successfully!
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+                    name:
+                      type: string
+              required: " email password name "
+        required: true
+  "/login":
+    post:
+      summary: login user
+      tags:
+      - Resource
+      parameters: []
+      responses:
+        '200':
+          description: Logged in successfully!
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    password:
+                      type: string
+              required:
+              - email
+              - password
+  "/logout":
+    delete:
+      summary: logout
+      responses:
+        '200':
+          description: Logout successfully!
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
