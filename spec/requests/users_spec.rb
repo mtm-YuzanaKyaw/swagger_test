@@ -12,7 +12,7 @@ RSpec.describe 'users', type: :request do
   path '/signup' do
 
     post('signup users') do
-      tags 'Resource'
+      tags 'Authentication'
       consumes 'application/json'
       parameter name: 'user', in: :body, required: true, schema:{
         type: :object,
@@ -44,7 +44,7 @@ RSpec.describe 'users', type: :request do
 
   path '/login' do
     post('login user') do
-      tags 'Resource'
+      tags 'Authentication'
       consumes 'application/json'
       parameter name: 'user', in: :body, schema: {
         type: :object,
@@ -75,6 +75,7 @@ RSpec.describe 'users', type: :request do
 
   path '/logout' do
     delete('logout') do
+      tags 'Authentication'
       response(200, "Logout successfully!") do
         let(:Authorization) { "Bearer #{valid_jwt_token}" } 
         after do |example|
